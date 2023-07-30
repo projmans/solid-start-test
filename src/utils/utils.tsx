@@ -13,6 +13,19 @@ export const validatePassword = (password: unknown) => {
   }
 }
 
+export const fakeAPIResponse = function <T>(
+  response: T,
+  delayInMilliseconds = 500,
+  shouldReject = false
+): Promise<T> {
+  return new Promise((resolve, reject) => {
+    if (shouldReject) {
+      reject("Something went wrong while fetching data")
+    }
+    setTimeout(() => resolve(response), delayInMilliseconds)
+  })
+}
+
 // Not working: localStorage not defined in server
 // export function createLocalStore<T extends object>(
 //   name: string,
