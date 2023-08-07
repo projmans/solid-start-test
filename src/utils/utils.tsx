@@ -26,6 +26,10 @@ export const fakeAPIResponse = function <T>(
   })
 }
 
+export const capitalizeFirstLetter = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
 // Not working: localStorage not defined in server
 // export function createLocalStore<T extends object>(
 //   name: string,

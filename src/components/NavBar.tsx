@@ -1,5 +1,3 @@
-import { createEffect } from "solid-js"
-import { SetStoreFunction, Store, createStore } from "solid-js/store"
 import { setTheme } from "~/root"
 
 export const NavBar = () => {
