@@ -1,6 +1,5 @@
 import { A, Title } from "solid-start"
 import { createServerData$, redirect } from "solid-start/server"
-import { NavBar } from "~/components/NavBar"
 import { getUser } from "~/db/session"
 
 export function routeData() {
@@ -14,17 +13,14 @@ export function routeData() {
 }
 
 export default () => (
-  <>
-    <NavBar />
-    <main class="container">
-      <Title>Test route</Title>
-      <hgroup>
-        <h1>Hi there</h1>
-        <h2>{"There's nothing here. Come back later :)"}</h2>
-      </hgroup>
-      <div>
-        <A href="/">Go back</A>
-      </div>
-    </main>
-  </>
+  <main class="container">
+    <Title>Test route</Title>
+    <hgroup>
+      <h1>Hi there</h1>
+      <h2>{"There's nothing here. Come back later :)"}</h2>
+    </hgroup>
+    <div>
+      <A href="/">Go back</A>
+    </div>
+  </main>
 )

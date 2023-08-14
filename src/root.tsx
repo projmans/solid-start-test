@@ -12,6 +12,7 @@ import {
   Scripts,
   Title,
 } from "solid-start"
+import { NavBar } from "./components/NavBar"
 
 export const [theme, setTheme] = createSignal("dark")
 
@@ -28,6 +29,7 @@ export default function Root() {
         />
       </Head>
       <Body>
+        <NavBar />
         <ErrorBoundary>
           <Suspense fallback={<div>Loading...</div>}>
             <Routes>

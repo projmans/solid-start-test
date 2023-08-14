@@ -4,7 +4,6 @@ import {
   createServerData$,
   redirect,
 } from "solid-start/server"
-import { NavBar } from "~/components/NavBar"
 import { getUser, logout } from "~/db/session"
 
 export function routeData() {
@@ -24,7 +23,6 @@ export default function Home() {
   })
   return (
     <>
-      <NavBar />
       <main class="container">
         <h1>Hello {user()?.username}</h1>
         <h3>Message board</h3>

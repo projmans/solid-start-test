@@ -6,7 +6,6 @@ import {
   createServerData$,
   redirect,
 } from "solid-start/server"
-import { NavBar } from "~/components/NavBar"
 import { db } from "~/db"
 import { createUserSession, getUser, login, register } from "~/db/session"
 import { validatePassword, validateUsername } from "~/utils/utils"
@@ -81,61 +80,58 @@ export default function Login() {
     }
   })
   return (
-    <>
-      <NavBar />
-      <main class="container">
-        <article class="grid">
-          <div>
-            <hgroup>
-              <h1>Sign in</h1>
-              <h2>A minimalist layout for Login pages</h2>
-            </hgroup>
-            <Form>
-              <input
-                type="hidden"
-                name="redirectTo"
-                value={params.redirectTo ?? "/"}
-              />
-              <fieldset>
-                <legend>Login or Register?</legend>
-                <label>
-                  <input
-                    type="radio"
-                    name="loginType"
-                    value="login"
-                    checked={true}
-                  />{" "}
-                  Login
-                </label>
-                <label>
-                  <input type="radio" name="loginType" value="register" />{" "}
-                  Register
-                </label>
-              </fieldset>
-              <div>
-                <label for="username-input">Username</label>
-                <input name="username" placeholder="kody" />
-              </div>
-              <Show when={loggingIn.error?.fieldErrors?.username}>
-                <p role="alert">{loggingIn.error.fieldErrors.username}</p>
-              </Show>
-              <div>
-                <label for="password-input">Password</label>
-                <input name="password" type="password" placeholder="twixrox" />
-              </div>
-              <Show when={loggingIn.error?.fieldErrors?.password}>
-                <p role="alert">{loggingIn.error.fieldErrors.password}</p>
-              </Show>
-              <Show when={loggingIn.error}>
-                <p role="alert" id="error-message">
-                  {loggingIn.error.message}
-                </p>
-              </Show>
-              <button type="submit">{data() ? "Login" : ""}</button>
-            </Form>
-          </div>
-        </article>
-      </main>
-    </>
+    <main class="container">
+      <article class="grid">
+        <div>
+          <hgroup>
+            <h1>Sign in</h1>
+            <h2>A minimalist layout for Login pages</h2>
+          </hgroup>
+          <Form>
+            <input
+              type="hidden"
+              name="redirectTo"
+              value={params.redirectTo ?? "/"}
+            />
+            <fieldset>
+              <legend>Login or Register?</legend>
+              <label>
+                <input
+                  type="radio"
+                  name="loginType"
+                  value="login"
+                  checked={true}
+                />{" "}
+                Login
+              </label>
+              <label>
+                <input type="radio" name="loginType" value="register" />{" "}
+                Register
+              </label>
+            </fieldset>
+            <div>
+              <label for="username-input">Username</label>
+              <input name="username" placeholder="kody" />
+            </div>
+            <Show when={loggingIn.error?.fieldErrors?.username}>
+              <p role="alert">{loggingIn.error.fieldErrors.username}</p>
+            </Show>
+            <div>
+              <label for="password-input">Password</label>
+              <input name="password" type="password" placeholder="twixrox" />
+            </div>
+            <Show when={loggingIn.error?.fieldErrors?.password}>
+              <p role="alert">{loggingIn.error.fieldErrors.password}</p>
+            </Show>
+            <Show when={loggingIn.error}>
+              <p role="alert" id="error-message">
+                {loggingIn.error.message}
+              </p>
+            </Show>
+            <button type="submit">{data() ? "Login" : ""}</button>
+          </Form>
+        </div>
+      </article>
+    </main>
   )
 }
